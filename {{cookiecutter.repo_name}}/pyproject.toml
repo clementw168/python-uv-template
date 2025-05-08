@@ -39,7 +39,7 @@ exclude = [
 ]
 
 [tool.pyright]
-include = ["{{cookiecutter.project_name}}"]
+include = ["src/{{cookiecutter.project_name}}"]
 exclude = []
 strict = []
 

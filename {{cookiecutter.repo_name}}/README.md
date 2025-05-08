@@ -16,9 +16,9 @@ This project is built using modern Python development practices and tools, with 
 
 ### Initial Setup
 
-1. **Clone the repository**:
+1. **Clone this repository**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/<username>/{{cookiecutter.repo_name}}.git
    cd {{cookiecutter.repo_name}}
    ```
 
@@ -39,10 +39,17 @@ This project is built using modern Python development practices and tools, with 
    # Create and activate virtual environment
    uv venv
    uv sync --all-extras
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
    ```
 
 ## Development Workflow
+
+### Running a Python script
+
+To run a Python script, you can use the following command:
+```bash
+uv run src/{{cookiecutter.project_name}}/hello_world.py
+```
+Feel free to take a tour on UV's [documentation](https://docs.astral.sh/uv/getting-started/features/#scripts) for more details.
 
 ### Package Management
 
@@ -114,7 +121,9 @@ make check
 Testing is handled with `pytest`. [Unit tests](https://docs.pytest.org/en/stable/how-to/unittest.html) should be placed in the `tests/src/<project_name>/` folder. 
 
 ```bash
-uv run pytest
+make test
+# or
+# uv run pytest
 ```
 
 You can also get a full coverage report with
@@ -122,17 +131,19 @@ You can also get a full coverage report with
 make test-coverage
 ```
 
-This will generate a `coverage` folder which contains the HTML report and a text report.
+This will generate a `coverage` folder which contains the HTML report and a text report. The HTML report can be opened in a browser to see the coverage details.
 
 ### Continuous Integration and Continuous Deployment (CI/CD)
 
 CI/CD is handled with GitHub Actions. It allows you to test your code automatically and deploy it to a cloud service.
 
-This project includes GitHub Actions workflows for:
+By default, this project includes GitHub Actions workflows for:
 - Code quality checks
 - Automated testing
 
 Configuration can be found in `.github/workflows/`.
+
+To avoid triggering the CI/CD by default on the `main` branch, the template uses the `main_` branch as a default branch. Change it to `main` if you want to trigger the CI/CD by default on the `main` branch.
 
 ### Local packaging
 
@@ -141,16 +152,22 @@ To build the package, run
 make build
 ```
 
+This will build the package inside a Docker container. The build package can be found in the `dist/` folder.
+
 
 ### Scripting
 
-Bash scripts can be placed in the `scripts/` folder. 
-For development purposes, you can also use the `Makefile` to run instructions.
+Bash scripts can be placed in the `scripts/` folder. Here is an example of a script:
+```
+scripts/script_demo.sh
+```
+
+You can also use the `Makefile` to create new `make` commands.
 
 ## Best Practices
 
 1. **Code Style**
-   - Follow PEP 8 guidelines
+   - Follow [PEP 8 guidelines](https://pep8.org/)
    - Use type hints
    - Write docstrings for all public functions
 
