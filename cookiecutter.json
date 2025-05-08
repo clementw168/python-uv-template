@@ -3,5 +3,6 @@
 	"project_name": "{{ cookiecutter.repo_name.replace('-', '_') }}",
 	"description": "A short description of the project.",
 	"author": "Repo Author",
-	"author_email": "author@example.com"
+	"author_email": "author@example.com",
+	"github_username_or_org": "github_username_or_org"
 }

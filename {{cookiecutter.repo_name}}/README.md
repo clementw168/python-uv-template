@@ -1,5 +1,13 @@
 # 🚀 {{cookiecutter.project_name}}
 
+[![Powered by UV](https://img.shields.io/badge/Powered%20by-UV-%2300C2D7)](https://github.com/astral-sh/uv)
+[![Python](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/downloads/)
+[![GitHub Template](https://img.shields.io/badge/template-available-brightgreen?logo=github)](https://github.com/clementw168/python-uv-template/generate)
+[![CodeQL](https://github.com/{{cookiecutter.github_username_or_org}}/{{cookiecutter.repo_name}}/actions/workflows/codeql.yml/badge.svg)](https://github.com/{{cookiecutter.github_username_or_org}}/{{cookiecutter.repo_name}}/actions)
+[![Lint and tests](https://github.com/{{cookiecutter.github_username_or_org}}/{{cookiecutter.repo_name}}/actions/workflows/check_and_tests.yml/badge.svg)](https://github.com/{{cookiecutter.github_username_or_org}}/{{cookiecutter.repo_name}}/actions)
+[![Open Issues](https://img.shields.io/github/issues/{{cookiecutter.github_username_or_org}}/{{cookiecutter.repo_name}})](https://github.com/{{cookiecutter.github_username_or_org}}/{{cookiecutter.repo_name}}/issues)
+
+
 {{cookiecutter.description}}
 
 ---
@@ -7,15 +15,15 @@
 ## 📚 Table of Contents
 
 - [Overview](#-overview)
-- [Quick Start](#-quick-start)
-- [Project Structure](#-project-structure)
-- [Development Workflow](#-development-workflow)
-  - [Running Scripts](#running-scripts)
-  - [Package Management](#package-management)
-  - [Development Tools](#-development-tools)
-  - [Testing](#-testing)
-  - [CI/CD](#-cicd)
-  - [Packaging](#-packaging)
+- [Quick Start](#️-quick-start)
+- [Project Structure](#️-project-structure)
+- [Development Workflow](#️-development-workflow)
+  - [Running Python scripts](#️-running-python-scripts)
+  - [Package Management](#-package-management)
+  - [Development Tools](#️-development-tools)
+  - [Testing](#-testing-with-pytest)
+  - [CI/CD](#-continuous-integration-and-continuous-deployment-cicd)
+  - [Build locally](#-build-locally)
   - [Scripting](#-scripting)
 - [Best Practices](#-best-practices)
 - [Troubleshooting](#-troubleshooting)
@@ -161,7 +169,7 @@ make test-coverage
 
 - GitHub Actions handle testing, linting, and type checks.
 - Workflows are in `.github/workflows/`.
-- Default branch: The template uses `main_` to avoid auto-triggering.
+- Default branch: The template uses `main_` to avoid auto-triggering at the start of the project.
    👉 Change to `main` if you want default CI/CD on pushes.
 
 By default, this project includes GitHub Actions workflows for:
@@ -169,7 +177,7 @@ By default, this project includes GitHub Actions workflows for:
 - Lint, type check and unit testing
 
 
-### 📦 Local packaging
+### 📦 Build locally
 
 Build your Python package in Docker:
 ```bash
@@ -180,7 +188,7 @@ Find the result in the `dist/` folder.
 
 ### 📄 Scripting
 
-Put Bash scripts in `scripts/`.
+Place Bash scripts in `scripts/`.
 
 Example: 
 ```bash
@@ -227,3 +235,11 @@ Customize or add `make` commands in the `Makefile`.
 - [UV docs](https://docs.astral.sh/uv/)
 - [Python best practices](https://packaging.python.org/en/latest/)
 - [GitHub Actions docs](https://docs.github.com/en/actions)
+
+
+---
+
+> **This project was generated using the [Python UV Project Template](https://github.com/clementw168/python-uv-template/).  
+> If you’d like to create a similar project, check out the template on GitHub!**
+
+---
