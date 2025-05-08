@@ -1,16 +1,19 @@
-default: build-image
-
 PROJECT_NAME={{cookiecutter.repo_name}}
 PYTHON_VERSION=`cat .python-version 2>/dev/null || echo 3.11`
-TEST_DOCKER_IMAGE={{cookiecutter.repo_name}}-test
 
-run-test:
-	docker build --build-arg PYTHON_VERSION=$(PYTHON_VERSION) -t $(TEST_DOCKER_IMAGE) -f docker/build-package/Dockerfile .
-	mkdir -p coverage
-	docker run --rm \
-		-v `pwd`/coverage:/src/coverage $(TEST_DOCKER_IMAGE)
+test-coverage:
+	uv run coverage run --source={{cookiecutter.project_name}} -m pytest tests/unit_tests #--ignore-errors && \
+	rm -rf coverage && \
+	uv run coverage html -d coverage/htmlcov && \
+	uv run coverage report | tee coverage/coverage.txt
 
 check:
 	ruff check .
 	mypy .
 	pyright
+
+build:
+	docker build --build-arg PYTHON_VERSION=$(PYTHON_VERSION) -t $(PROJECT_NAME) .
+	docker run --rm -v `pwd`:/src $(PROJECT_NAME)
+
+
