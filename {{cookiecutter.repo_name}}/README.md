@@ -1,33 +1,56 @@
-# {{cookiecutter.project_name}}
+# 🚀 {{cookiecutter.project_name}}
 
 {{cookiecutter.description}}
 
-## Overview
+---
 
-This project is built using modern Python development practices and tools, with a focus on maintainability, scalability, and developer experience.
+## 📚 Table of Contents
 
-## Quick Start Guide
+- [Overview](#-overview)
+- [Quick Start](#-quick-start)
+- [Project Structure](#-project-structure)
+- [Development Workflow](#-development-workflow)
+  - [Running Scripts](#running-scripts)
+  - [Package Management](#package-management)
+  - [Development Tools](#-development-tools)
+  - [Testing](#-testing)
+  - [CI/CD](#-cicd)
+  - [Packaging](#-packaging)
+  - [Scripting](#-scripting)
+- [Best Practices](#-best-practices)
+- [Troubleshooting](#-troubleshooting)
+- [Need Help?](#-need-help)
+
+---
+
+## 📝 Overview
+
+This project leverages **modern Python development** best practices for maintainability, scalability, and developer happiness.
+
+---
+
+## ⚡️ Quick Start
 
 ### Prerequisites
 
-- Python 3.11 or higher
-- UV package manager
-- Git
+- [Python 3.11+](https://www.python.org/downloads/)
+- [UV](https://docs.astral.sh/uv/getting-started/installation/) (superfast Python package manager)
+- [Git](https://git-scm.com/)
 
-### Initial Setup
+### 🚦 Initial Setup
 
-1. **Clone this repository**:
+1. **Clone this repository:**
    ```bash
    git clone https://github.com/<username>/{{cookiecutter.repo_name}}.git
    cd {{cookiecutter.repo_name}}
    ```
 
 2. **Install UV**:
-   For Linux/MacOS:
-   ```bash
-   curl -LsSf https://astral.sh/uv/install.sh | sh
-   ```
-   For other platforms, please refer to the [UV installation guide](https://docs.astral.sh/uv/getting-started/installation/).
+   - For Linux/MacOS:
+      ```bash
+      curl -LsSf https://astral.sh/uv/install.sh | sh
+      ```
+   - Other platforms: [See UV docs](https://docs.astral.sh/uv/getting-started/installation/).
 
 
 3. **Set up Python environment**:
@@ -40,131 +63,133 @@ This project is built using modern Python development practices and tools, with 
    uv venv
    uv sync --all-extras
    ```
+## 🗂️ Project Structure
 
-## Development Workflow
+```
+<repo_name>/
+├── .github/           # GitHub Actions workflows
+│   └── workflows/
+├── scripts/           # Bash scripts
+├── src/               # Source code
+│   └── <project_name>/
+│       └── hello_world.py
+├── tests/             # Tests
+│   └── src/
+│       └── <project_name>/
+│           └── test_hello_world.py
+├── .gitignore         # Git ignore rules
+├── .python-version    # Python version
+├── Dockerfile         # Docker configuration for building the package
+├── Makefile           # Makefile for running commands
+├── pyproject.toml     # Python project configuration
+└── README.md          # Project documentation
+``` 
 
-### Running a Python script
+This project uses the [recommended structure for packaging in Python](https://packaging.python.org/en/latest/tutorials/packaging-projects/).
 
-To run a Python script, you can use the following command:
+## 🛠️ Development Workflow
+
+### ▶️ Running Python scripts
+
+Run a Python script (e.g., hello world):
 ```bash
 uv run src/{{cookiecutter.project_name}}/hello_world.py
 ```
-Feel free to take a tour on UV's [documentation](https://docs.astral.sh/uv/getting-started/features/#scripts) for more details.
 
-### Package Management
+🔗 [UV scripts guide](https://docs.astral.sh/uv/getting-started/features/#scripts)
 
-UV is our package manager of choice, offering:
-- Lightning-fast package installation
-- Automatic dependency resolution
-- Virtual environment management
-- Python version management
+### 📦 Package Management
 
-**Adding new dependencies**:
+- Add dependencies:
 ```bash
 uv add <package-name>
 ```
 
-**Updating dependencies**:
+- Update dependencies:
 ```bash
 uv sync --all-extras
 ```
 
-**Troubleshooting UV**:
-
-If UV is encountering dependencies issues, you can try to delete the `uv.lock`file, delete the `.venv` folder and try to run `uv sync --all-extras` again.
-
-If you encounter issues with UV, please refer to the [documentation](https://docs.astral.sh/uv/).
-
-
-
-### Project Structure
-
-```
-<repo_name>/
-├── .github/
-│   └── workflows/
-├── scripts/
-├── src/
-│ └── <project_name>/
-│   └── hello_world.py
-├── tests/
-| └── src/
-|   └── <project_name>/
-|     └── test_hello_world.py
-├── .gitignore
-├── .python-version
-├── Dockerfile
-├── Makefile
-├── pyproject.toml
-└── README.md
+- Upgrade all:
+```bash
+uv sync --upgrade
 ```
 
-The structure follows the [recommended structure for packaging in Python](https://packaging.python.org/en/latest/tutorials/packaging-projects/).
+- Troubleshoot:
+   If you have issues, try:
+   ```
+   rm uv.lock
+   rm -rf .venv
+   uv venv
+   uv sync --all-extras
+   ```
+   More help: [UV docs](https://docs.astral.sh/uv/)
 
 
-### Development Tools
 
-Note that all Python development tools are configured in the `pyproject.toml` file.
+### ⚙️ Development Tools
 
-- **Code Formatting**: `uv run black .`
-- **Type Checking**: `uv run mypy .`
-- **Linting**: `uv run ruff check .`
+All tools are configured in `pyproject.toml` and integrated into the Makefile:
 
-These are pre-configured in the Makefile. Run all of them with
+- **Format**: `uv run black .`
+- **Type-check**: `uv run mypy .`
+- **Lint**: `uv run ruff check .`
+
+✔️ Run all checks with:
 ```bash
 make check
 ```
 
 
-### Testing
+### 🧪 Testing with pytest
 
-Testing is handled with `pytest`. [Unit tests](https://docs.pytest.org/en/stable/how-to/unittest.html) should be placed in the `tests/src/<project_name>/` folder. 
+Testing is handled with `pytest`. Put [Unit tests](https://docs.pytest.org/en/stable/how-to/unittest.html) in the `tests/src/{{cookiecutter.project_name}}/` folder. 
 
+- Run all tests: 
 ```bash
 make test
-# or
-# uv run pytest
 ```
-
-You can also get a full coverage report with
+- Coverage report:
 ```bash
 make test-coverage
 ```
+→ Open `coverage/index.html` for details
 
-This will generate a `coverage` folder which contains the HTML report and a text report. The HTML report can be opened in a browser to see the coverage details.
 
-### Continuous Integration and Continuous Deployment (CI/CD)
+### 🔄 Continuous Integration and Continuous Deployment (CI/CD)
 
-CI/CD is handled with GitHub Actions. It allows you to test your code automatically and deploy it to a cloud service.
+
+- GitHub Actions handle testing, linting, and type checks.
+- Workflows are in `.github/workflows/`.
+- Default branch: The template uses `main_` to avoid auto-triggering.
+   👉 Change to `main` if you want default CI/CD on pushes.
 
 By default, this project includes GitHub Actions workflows for:
 - Vulnerability scanning ([only available for free for public repositories](https://docs.github.com/en/code-security/code-scanning/troubleshooting-code-scanning/advanced-security-must-be-enabled))
 - Lint, type check and unit testing
 
-Configuration can be found in `.github/workflows/`.
 
-To avoid triggering the CI/CD by default on the `main` branch, the template uses the `main_` branch as a default branch. Change it to `main` if you want to trigger the CI/CD by default on the `main` branch.
+### 📦 Local packaging
 
-### Local packaging
-
-To build the package, run
+Build your Python package in Docker:
 ```bash
 make build
 ```
+Find the result in the `dist/` folder.
 
-This will build the package inside a Docker container. The build package can be found in the `dist/` folder.
 
+### 📄 Scripting
 
-### Scripting
+Put Bash scripts in `scripts/`.
 
-Bash scripts can be placed in the `scripts/` folder. Here is an example of a script:
-```
+Example: 
+```bash
 scripts/script_demo.sh
 ```
 
-You can also use the `Makefile` to create new `make` commands.
+Customize or add `make` commands in the `Makefile`.
 
-## Best Practices
+## 🌟 Best Practices
 
 1. **Code Style**
    - Follow [PEP 8 guidelines](https://pep8.org/)
@@ -179,13 +204,11 @@ You can also use the `Makefile` to create new `make` commands.
 3. **Testing**
    - Write unit tests for new features
    - Maintain test coverage
-   - Use pytest fixtures effectively
+   - Use pytest [fixtures](https://docs.pytest.org/en/stable/reference/fixtures.html)
 
-## Troubleshooting
+## 🧩 Troubleshooting
 
-Common issues and their solutions:
-
-1. **Virtual Environment Issues**
+**Virtual environment issues**
    ```bash
    # Recreate virtual environment
    rm uv.lock
@@ -194,8 +217,13 @@ Common issues and their solutions:
    uv sync --all-extras
    ```
 
-2. **Dependency Conflicts**
+**Dependency conflicts**
    ```bash
-   # Update all dependencies
    uv sync --upgrade
    ```
+
+## 💡 Need Help?
+
+- [UV docs](https://docs.astral.sh/uv/)
+- [Python best practices](https://packaging.python.org/en/latest/)
+- [GitHub Actions docs](https://docs.github.com/en/actions)
