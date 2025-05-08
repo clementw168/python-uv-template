@@ -74,16 +74,16 @@ This project leverages **modern Python development** best practices for maintain
 ## 🗂️ Project Structure
 
 ```
-<repo_name>/
+{{cookiecutter.repo_name}}/
 ├── .github/           # GitHub Actions workflows
 │   └── workflows/
 ├── scripts/           # Bash scripts
 ├── src/               # Source code
-│   └── <project_name>/
+│   └── {{cookiecutter.project_name}}/
 │       └── hello_world.py
 ├── tests/             # Tests
 │   └── src/
-│       └── <project_name>/
+│       └── {{cookiecutter.project_name}}/
 │           └── test_hello_world.py
 ├── .gitignore         # Git ignore rules
 ├── .python-version    # Python version
