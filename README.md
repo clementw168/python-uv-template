@@ -79,7 +79,7 @@ git push -u origin main
 ## 🚑 Troubleshooting
 
 Having trouble setting up your repository or pushing to GitHub?  
-Check out our [TROUBLESHOOTING.md](TROUBLESHOOTING.md) for solutions to common Git and setup errors.
+Check out our [`TROUBLESHOOTING.md`](TROUBLESHOOTING.md) for solutions to common Git and setup errors.
 
 
 ## 🏗️ Generated Project Structure
