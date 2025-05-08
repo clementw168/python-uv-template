@@ -58,6 +58,8 @@ A modern, opinionated template for Python projects using UV as the package manag
    git remote set-url origin https://<your_username>@github.com/<your_username>/<repo_name>.git
    ```
 
+   Replace `set-url` with `add` if you have `error: No such remote 'origin'`.
+
    If it worked, you should be able to see your repository on Github!
 
 Trouble shooting:
@@ -163,6 +165,19 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Support
 
 For questions and support, please open an issue in the GitHub repository.
+
+
+## Future improvements
+
+- Workflows
+   - Add a CI/CD workflow for deployment to PyPI
+   - Automated versioning and changelog generation
+   - Github release creation
+   - Matrix testing for multiple Python versions
+   - Dependabot configuration
+
+- Environment Configuration
+   - Pre-commit hooks (linting, type checking)
 
 ## Acknowledgments
 

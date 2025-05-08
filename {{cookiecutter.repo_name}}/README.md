@@ -138,8 +138,8 @@ This will generate a `coverage` folder which contains the HTML report and a text
 CI/CD is handled with GitHub Actions. It allows you to test your code automatically and deploy it to a cloud service.
 
 By default, this project includes GitHub Actions workflows for:
-- Code quality checks
-- Automated testing
+- Vulnerability scanning ([only available for free for public repositories](https://docs.github.com/en/code-security/code-scanning/troubleshooting-code-scanning/advanced-security-must-be-enabled))
+- Lint, type check and unit testing
 
 Configuration can be found in `.github/workflows/`.
 
