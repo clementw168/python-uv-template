@@ -28,8 +28,8 @@ A **modern, opinionated Cookiecutter template** for Python projects, featuring [
 - **🚀 UV-based dependency & environment management**
 - **🗂️ Modern Python packaging layout**
 - **🧪 Pytest-based testing with coverage**
-- **🛠️ Black, Ruff, and MyPy for code quality**
-- **🤖 GitHub Actions for CI (lint, type-check, test, security scan)**
+- **🛠️ Ruff for code quality and Pyright for type-checking**
+- **🤖 GitHub Actions for CI (lint, type-check, test)**
 - **🐳 Dockerfile and Makefile for repeatable builds**
 - **📚 Beautiful, thorough README in every project**
 - **⚡ Zero cruft, batteries included**
@@ -138,9 +138,8 @@ Have an idea or want to contribute? [Open an issue](https://github.com/clementw1
 - [UV](https://github.com/astral-sh/uv)
 - [Cookiecutter](https://cookiecutter.readthedocs.io/)
 - [Pytest](https://docs.pytest.org/)
-- [Black](https://github.com/psf/black)
 - [Ruff](https://github.com/astral-sh/ruff)
-- [Mypy](https://github.com/python/mypy)
+- [Pyright](https://github.com/microsoft/pyright)
 
 ---
 

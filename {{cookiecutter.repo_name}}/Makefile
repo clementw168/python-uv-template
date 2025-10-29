@@ -3,7 +3,6 @@ PYTHON_VERSION=`cat .python-version 2>/dev/null || echo 3.11`
 
 check:
 	uv run ruff check .
-	uv run mypy .
 	uv run pyright
 
 

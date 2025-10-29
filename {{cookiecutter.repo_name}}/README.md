@@ -139,8 +139,8 @@ uv sync --upgrade
 
 All tools are configured in `pyproject.toml` and integrated into the Makefile:
 
-- **Format**: `uv run black .`
-- **Type-check**: `uv run mypy .`
+- **Format**: `uv run ruff format .`
+- **Type-check**: `uv run pyright`
 - **Lint**: `uv run ruff check .`
 
 ✔️ Run all checks with:
