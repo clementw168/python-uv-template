@@ -38,17 +38,20 @@ A **modern, opinionated Cookiecutter template** for Python projects, featuring [
 
 ## 🏁 Quick Start
 
-### 1. Install Cookiecutter
+### 1. Install UV
 
 ```bash
-pip install cookiecutter
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 ### 2. Generate a new project
 
 ```bash
-cookiecutter https://github.com/clementw168/python-uv-template
+uvx cookiecutter https://github.com/clementw168/python-uv-template
 ```
+
+`uvx` uses cookiecutter to create your project folder.
+
 Follow the prompts to name your project and fill in metadata. 
 For multiple authors, you can add other authors in the generated `pyproject.toml` file later.
 
