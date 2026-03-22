@@ -9,9 +9,17 @@ authors = [
 ]
 readme = "README.md"
 
-[build-system]
-requires = ["setuptools", "setuptools-scm"]
-build-backend = "setuptools.build_meta"
+[dependency-groups]
+dev = [
+    "ruff>=0.9.6",
+    "pyright>=1.1.394",
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+    "coverage>=7.6.12",
+]
+
+[tool.uv]
+package = true
 
 
 [tool.ruff]
@@ -55,12 +63,3 @@ testpaths = ["./tests/"]
 filterwarnings = []
 
 
-
-[dependency-groups]
-dev = [
-    "ruff>=0.9.6",
-    "pyright>=1.1.394",
-    "pytest>=8.3.4",
-    "pytest-cov>=6.0.0",
-    "coverage>=7.6.12",
-]
